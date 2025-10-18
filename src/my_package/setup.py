@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
 		'talker = my_package.talker:main',
+        'sin_publisher = my_package.sin_publisher:main',
         ],
     },
 )
