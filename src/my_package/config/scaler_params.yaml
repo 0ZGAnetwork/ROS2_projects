@@ -1,0 +1,4 @@
+my_package:
+  ros__parameters:
+    scale_factor: 2.5
+    offset: 1.0

@@ -16,7 +16,8 @@ class GenSinus(Node):
         self.publisher_ = self.create_publisher(Float32, 'signal', 10)
         self.timer = self.create_timer(0.1, self.timer_callback)
         self.start_time = time.time()
-        self.get_logger().info(f'Sinusoidal publisher node has been started: amplitude={self.amplitude}, frequency={self.frequency}')
+        #self.get_logger().info(f'Sinusoidal publisher node has been started: amplitude={self.amplitude}, frequency={self.frequency}')
+        self.get_logger().info(f'Amplitude={self.amplitude}, Frequency={self.frequency}')
 
     def timer_callback(self):
         t = time.time() - self.start_time

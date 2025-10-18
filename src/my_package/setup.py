@@ -11,6 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/config', ['config/generator_params.yaml']),
+        ('share/' + package_name + '/config', ['config/scaler_params.yaml']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -28,6 +29,7 @@ setup(
 		'talker = my_package.talker:main',
         'generator = my_package.generator:main',
         'visualtool = my_package.VisualTools:main',
+        'scaler = my_package.scaler:main',
         ],
     },
 )
