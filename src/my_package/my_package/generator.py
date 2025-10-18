@@ -4,9 +4,9 @@ from std_msgs.msg import Float32
 import math
 import time
 
-class SinPublisher(Node):
+class GenSinus(Node):
     def __init__(self):
-        super().__init__('sin_publisher')
+        super().__init__('Generator')
         self.publisher_ = self.create_publisher(Float32, 'sin_wave', 10)
         self.timer = self.create_timer(0.1, self.timer_callback)
         self.start_time = time.time()
@@ -22,7 +22,7 @@ class SinPublisher(Node):
 
 def main(args=None):
     rclpy.init(args=args)   # init ROS2
-    node=SinPublisher()     # create node
+    node=GenSinus()     # create node
     rclpy.spin(node)        # loop node
     node.destroy_node()     # destroy node
     rclpy.shutdown()        # shutdown ROS2
