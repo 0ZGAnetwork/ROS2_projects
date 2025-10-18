@@ -7,14 +7,20 @@ import time
 class GenSinus(Node):
     def __init__(self):
         super().__init__('Generator')
+        
+        self.declare_parameter('amplitude',1.0)
+        self.declare_parameter('frequency',1.0)
+        self.amplitude = self.get_parameter('amplitude').value
+        self.frequency = self.get_parameter('frequency').value
+
         self.publisher_ = self.create_publisher(Float32, 'signal', 10)
         self.timer = self.create_timer(0.1, self.timer_callback)
         self.start_time = time.time()
-        self.get_logger().info('Sinusoidal publisher node has been started.')
+        self.get_logger().info(f'Sinusoidal publisher node has been started: amplitude={self.amplitude}, frequency={self.frequency}')
 
     def timer_callback(self):
         t = time.time() - self.start_time
-        value = math.sin(t)
+        value = self.amplitude * math.sin(2 * math.pi * self.frequency * t)
         msg = Float32()
         msg.data = value
         self.publisher_.publish(msg)
@@ -22,7 +28,7 @@ class GenSinus(Node):
 
 def main(args=None):
     rclpy.init(args=args)   # init ROS2
-    node=GenSinus()     # create node
+    node=GenSinus()         # create node
     rclpy.spin(node)        # loop node
     node.destroy_node()     # destroy node
     rclpy.shutdown()        # shutdown ROS2
