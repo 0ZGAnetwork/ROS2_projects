@@ -26,9 +26,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-		'talker = my_package.talker:main',
         'generator = my_package.generator:main',
-        'visualtool = my_package.VisualTools:main',
+        'visualtools = my_package.VisualTools:main',
         'scaler = my_package.scaler:main',
         ],
     },
