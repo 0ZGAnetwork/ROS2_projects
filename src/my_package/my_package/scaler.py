@@ -1,6 +1,8 @@
 import rclpy
-from rclpy import Node
+from rclpy.node import Node
 from std_msgs.msg import Float32
+import math
+import time
 
 class ScalerNode(Node):
     def __init__(self):
@@ -8,7 +10,7 @@ class ScalerNode(Node):
         self.declare_parameter('scaler_factor', 1.0)
         self.declare_parameter('offset', 0.0)
 
-        self.scale_factor = self.get_parameter('scale_factor').value
+        self.scaler_factor = self.get_parameter('scaler_factor').value
         self.offset = self.get_parameter('offset').value
 
         self.publisher_ = self.create_publisher(Float32, 'modified_signal',10)
@@ -18,10 +20,10 @@ class ScalerNode(Node):
             self.callback,
             10
         )
-        self.get_logger().info(f'Scaler node started: scale_factor={self.scale_factor}, offset={self.offset}')
+        self.get_logger().info(f'Scaler node started: scaler_factor={self.scaler_factor}, offset={self.offset}')
 
     def callback(self, msg):
-        scaled_value = msg.data * self.scale_factor + self.offset
+        scaled_value = msg.data * self.scaler_factor + self.offset
         modified_msg = Float32()
         modified_msg.data = scaled_value
         self.publisher_.publish(modified_msg)

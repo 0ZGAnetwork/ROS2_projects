@@ -1,4 +1,4 @@
-my_package:
+scaler:
   ros__parameters:
-    scale_factor: 2.5
-    offset: 1.0
+    scaler_factor: 0.5
+    offset: 2.0
