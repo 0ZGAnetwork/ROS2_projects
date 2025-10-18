@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
 		'talker = my_package.talker:main',
         'generator = my_package.generator:main',
+        'visualtool = my_package.VisualTools:main',
         ],
     },
 )

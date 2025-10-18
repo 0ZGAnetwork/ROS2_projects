@@ -7,7 +7,7 @@ import time
 class GenSinus(Node):
     def __init__(self):
         super().__init__('Generator')
-        self.publisher_ = self.create_publisher(Float32, 'sin_wave', 10)
+        self.publisher_ = self.create_publisher(Float32, 'signal', 10)
         self.timer = self.create_timer(0.1, self.timer_callback)
         self.start_time = time.time()
         self.get_logger().info('Sinusoidal publisher node has been started.')
