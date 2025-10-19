@@ -12,6 +12,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/config', ['config/generator_params.yaml']),
         ('share/' + package_name + '/config', ['config/scaler_params.yaml']),
+        ('share/' + package_name + '/launch',['launch/my.launch.py'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
