@@ -1,4 +1,4 @@
 Generator:
   ros__parameters:
     amplitude: 1.0
-    frequency: 0.5
+    frequency: 0.1

@@ -10,21 +10,21 @@ class GenSinus(Node):
         super().__init__('Generator')
         
         self.declare_parameter('amplitude',1.0)
-        self.declare_parameter('frequency',1.0)
+        self.declare_parameter('frequency',0.1)
         self.amplitude = self.get_parameter('amplitude').value
         self.frequency = self.get_parameter('frequency').value
 
         self.add_on_set_parameters_callback(self.parameter_callback)
 
         self.publisher_ = self.create_publisher(Float32, 'signal', 10)
-        self.timer = self.create_timer(0.1, self.timer_callback)
+        self.timer = self.create_timer(0.01, self.timer_callback)
         self.start_time = time.time()
 
         self.get_logger().info(f'Amplitude={self.amplitude}, Frequency={self.frequency}')
 
     def timer_callback(self):
         t = time.time() - self.start_time
-        value = self.amplitude * math.sin(2 * math.pi * self.frequency * t)
+        value = self.amplitude * math.sin(2 * math.pi * self.frequency * t) # A*sin(\omega*t)+B
         msg = Float32()
         msg.data = value
         self.publisher_.publish(msg)

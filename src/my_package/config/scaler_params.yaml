@@ -1,4 +1,4 @@
 scaler:
   ros__parameters:
-    scaler_factor: 0.5
-    offset: 2.0
+    scaler_factor: 1
+    offset: 0.0
