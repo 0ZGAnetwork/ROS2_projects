@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float32
 import matplotlib.pyplot as plt
+import time
 
 class VisualTools(Node):
     def __init__(self):
@@ -18,6 +19,9 @@ class VisualTools(Node):
             self.callback_modified,
             10
         )
+        self.timer = self.create_timer(0.1, self.update_plot)
+        
+
         self.values_signal = []
         self.values_modified = []
 
@@ -28,37 +32,51 @@ class VisualTools(Node):
         for ax in (self.ax1, self.ax2):
             ax.grid(True)
 
-        self.ax1.set_ylabel('Amplitude (signal)')
-        self.ax2.set_ylabel('Amplitude (modified)')
-        self.ax2.set_xlabel('Time')
+            self.ax1.set_ylabel('Amplitude (signal)')
+            self.ax2.set_ylabel('Amplitude (modified)')
+            self.ax2.set_xlabel('Time')
+            self.line_signal, = self.ax1.plot([], [], 'r-', linewidth=1.5, label='signal(t)')
+            self.line_modified, = self.ax2.plot([], [], 'b-', linewidth=1.5, label='modified(t)')
+
+            self.ax1.legend(loc='upper right')
+            self.ax2.legend(loc='upper right')
+            plt.tight_layout()
+            plt.show()
 
     def callback_signal(self, msg):
         self.values_signal.append(msg.data)
-        self.update_plot()
+        #self.update_plot()
 
     def callback_modified(self, msg):
         self.values_modified.append(msg.data)
-        self.update_plot()
+        #self.update_plot()
+
         
     def update_plot(self):
-        self.ax1.clear()
-        self.ax2.clear()
+        #self.ax1.clear()
+        #self.ax2.clear()
         
-        self.ax1.grid(True)
-        self.ax2.grid(True)
-        self.ax1.plot(self.values_signal[-120:],'r-',linewidth=1.5, label='signal(t)')  # plot last 100 values
-        self.ax2.plot(self.values_modified[-120:],'b-',linewidth=1.5, label='modified(t)')  # plot last 100 values
+        self.line_signal.set_data(range(len(self.values_signal[-50:])), self.values_signal[-50:])
+        self.line_modified.set_data(range(len(self.values_modified[-50:])), self.values_modified[-50:])
         
-        self.ax1.set_ylabel('Amplitude (signal)')
-        self.ax2.set_ylabel('Amplitude (modified)')
-        self.ax2.set_xlabel('Time')
-        self.ax1.grid(True)
-        self.ax2.grid(True)
         
-        self.ax1.legend(loc='upper right')
-        self.ax2.legend(loc='upper right')
-        plt.tight_layout()
-        plt.pause(0.01)
+        self.ax1.relim()
+        self.ax1.autoscale_view()
+        self.ax2.relim()
+        self.ax2.autoscale_view()
+
+        
+        self.fig.canvas.draw()
+        self.fig.canvas.flush_events()
+        #self.ax1.set_ylabel('Amplitude (signal)')
+        #self.ax2.set_ylabel('Amplitude (modified)')
+        #self.ax2.set_xlabel('Time')
+        #self.ax1.grid(True)
+        #self.ax2.grid(True)
+        
+        
+        #plt.tight_layout()
+        #plt.pause(0.001)
 
 def main(args=None):
     rclpy.init(args=args)
