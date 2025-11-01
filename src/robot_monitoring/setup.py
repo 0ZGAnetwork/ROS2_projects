@@ -10,6 +10,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/config', ['config/sensors.yaml']),
+        #('share/' + package_name + '/launch', ['launch/stary_system.py'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -24,6 +26,10 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'sensor1 = robot_monitoring.sensor1:main',
+            'sensor2 = robot_monitoring.sensor2:main',
+            'state_monitor = robot_monitoring.state_monitor:main',
+            'error_handler = robot_monitoring.error_handler:main',
         ],
     },
 )

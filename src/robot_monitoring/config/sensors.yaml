@@ -1,0 +1,4 @@
+state_monitor:
+  ros_parameters:
+    sensors: ["sensor1","sensor2"]
+    check_interval: 5.0
