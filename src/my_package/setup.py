@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'my_package'
+package_name = 'robot_monitoring_services'
 
 setup(
     name=package_name,
@@ -18,8 +18,8 @@ setup(
     zip_safe=True,
     maintainer='ozga',
     maintainer_email='ozga@todo.todo',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Robotic monitoring system',
+    license='MIT',
     extras_require={
         'test': [
             'pytest',

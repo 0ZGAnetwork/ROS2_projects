@@ -11,14 +11,15 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/config', ['config/sensors.yaml']),
+        #('share/' + package_name + '/srv', ['srv/HandleSensorError.srv'])
         #('share/' + package_name + '/launch', ['launch/stary_system.py'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='ozga',
     maintainer_email='ozgaapawell@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Robotic monitoring system',
+    license='MIT',
     extras_require={
         'test': [
             'pytest',
@@ -30,6 +31,7 @@ setup(
             'sensor2 = robot_monitoring.sensor2:main',
             'state_monitor = robot_monitoring.state_monitor:main',
             'error_handler = robot_monitoring.error_handler:main',
+            'sensor_client = robot_monitoring.sensor_client:main',
         ],
     },
 )

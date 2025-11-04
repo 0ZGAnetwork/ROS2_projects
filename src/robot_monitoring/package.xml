@@ -3,9 +3,9 @@
 <package format="3">
   <name>robot_monitoring</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Robot monitoring system</description>
   <maintainer email="ozgaapawell@gmail.com">ozga</maintainer>
-  <license>TODO: License declaration</license>
+  <license>MIT</license>
 
 
 

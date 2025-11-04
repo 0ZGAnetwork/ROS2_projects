@@ -15,10 +15,11 @@ class Sensor1Node(Node):
         msg = Bool()
         msg.data = self.state
         self.publisher_.publish(msg)
+        self.get_logger().info(f'State: {self.state}')
         
     def restart_callback(self, request, response):
         self.get_logger().info(f'Restarting {request.sensor_name}...')
-        self.state = False
+        self.state = True
         response.success = True
         return response
     

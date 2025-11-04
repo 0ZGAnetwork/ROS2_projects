@@ -5,7 +5,7 @@ from robot_interfaces.srv import HandleSensorError
 
 class StateMonitor(Node):
     def __init__(self):
-        super().__init__('state_monitor')
+        super().__init__('sub_sensors')
         self.sensors = ['sensor1','sensor2']
         self.sensor_states = {s: True for s in self.sensors}
 
@@ -19,7 +19,7 @@ class StateMonitor(Node):
     
     def sensor_callback(self, msg, sensor_name):
         if not msg.data:
-            self.get_logger().warning(f'{sensor_name} reported error!')
+            self.get_logger().warn(f'{sensor_name} reported error!')
 
             self.call_error_handler(sensor_name)
 
