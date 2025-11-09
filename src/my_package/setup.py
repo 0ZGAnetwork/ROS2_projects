@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'robot_monitoring_services'
+package_name = 'my_package'
 
 setup(
     name=package_name,
@@ -18,7 +18,7 @@ setup(
     zip_safe=True,
     maintainer='ozga',
     maintainer_email='ozga@todo.todo',
-    description='Robotic monitoring system',
+    description='my package',
     license='MIT',
     extras_require={
         'test': [
