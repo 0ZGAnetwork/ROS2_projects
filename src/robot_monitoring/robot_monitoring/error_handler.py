@@ -37,6 +37,31 @@ class ErrorHandler(Node):
             response.success = False
         return response
     
+# def call_error_handler(self, sensor_name):
+#     client = self.create_client(HandleSensorError, 'handle_sensor_error')
+
+#     # Poczekaj, aż handler będzie dostępny
+#     if not client.wait_for_service(timeout_sec=2.0):
+#         self.get_logger().warn('Error handler not available, skipping.')
+#         return
+
+#     # Dodatkowe sprawdzenie czy istnieje restart service dla tego sensora
+#     restart_client = self.create_client(HandleSensorError, f'restart_{sensor_name}')
+#     if not restart_client.wait_for_service(timeout_sec=1.0):
+#         self.get_logger().warn(f'Service restart_{sensor_name} not available. Sensor probably offline.')
+#         return  # <-- tu kończymy, nie próbujemy restartować
+
+#     # Dopiero teraz wołamy handler
+#     req = HandleSensorError.Request()
+#     req.sensor_name = sensor_name
+#     future = client.call_async(req)
+#     rclpy.spin_until_future_complete(self, future)
+
+#     response = future.result()
+#     if response:
+#         self.get_logger().info(f'ErrorHandler response: success={response.success}')
+
+
 def main(args=None):
     rclpy.init(args=args)
     node = ErrorHandler()
