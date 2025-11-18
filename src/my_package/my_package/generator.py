@@ -40,6 +40,7 @@ class GenSinus(Node):
                 self.get_logger().info(f'Updated frequency to {self.frequency}')
         return SetParametersResult(successful=True)
 
+    
 def main(args=None):
     rclpy.init(args=args)   # init ROS2
     node=GenSinus()         # create node
