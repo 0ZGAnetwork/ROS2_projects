@@ -4,18 +4,26 @@ from std_msgs.msg import Bool
 from rcl_interfaces.msg import SetParametersResult
 from robot_interfaces.srv import HandleSensorError
 
-class Sensor1Node(Node):
+class Sensor3Node(Node):
     def __init__(self, name):
         super().__init__(name)
-        self.declare_parameter('sensor1', True)
-        self.sensor1 = self.get_parameter('sensor1').value
+        self.declare_parameter('sensor3', True)
+        self.sensor3 = self.get_parameter('sensor3').value
         self.add_on_set_parameters_callback(self.parameter_callback)
 
-        self.state = bool(self.sensor1)
+        self.state = bool(self.sensor3)
         self.publisher_ = self.create_publisher(Bool, f'/{name}/state', 10)
         self.timer = self.create_timer(1.0, self.publish_state)
         self.srv = self.create_service(HandleSensorError, f'restart_{name}', self.restart_callback)
-        self.subs = self.create_subscription(Bool, f'/{name}/reset', self.reset_callback, 10)
+
+    def parameter_callback(self, params):
+        for param in params:
+            if param.name == 'sensor3' and isinstance(param.value, bool):
+                self.sensor3 = param.value
+                self.state = bool(self.sensor3)
+                self.get_logger().info(f'Update sensor3 state to {self.sensor3}')
+            self.publish_state()
+        return SetParametersResult(successful=True)
 
     def publish_state(self):
         msg = Bool()
@@ -28,28 +36,10 @@ class Sensor1Node(Node):
         self.state = True
         response.success = True
         return response
-
-    def parameter_callback(self, params):
-        for param in params:
-            if param.name == 'sensor1' and isinstance(param.value, bool):
-                self.sensor1 = param.value
-                self.state = bool(self.sensor1)
-                self.get_logger().info(f'Update sensor1 state to {self.sensor1}')
-        self.publish_state()
-        return SetParametersResult(successful=True)
     
-    def reset_callback(self, msg):
-        if msg.data:
-            self.get_logger().info('Reset received, setting state to True')
-            self.state = True
-            self.publish_state()
-
 def main(args=None):
     rclpy.init(args=args)
-    node = Sensor1Node('sensor1')
+    node = Sensor3Node('sensor3')
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()

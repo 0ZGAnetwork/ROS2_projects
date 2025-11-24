@@ -14,9 +14,10 @@ class Sensor2Node(Node):
         self.add_on_set_parameters_callback(self.parameter_callback)
 
         self.state = bool(self.sensor2)
-        self.publisher_ = self.create_publisher(Bool, f'/{name}/status', 10)
+        self.publisher_ = self.create_publisher(Bool, f'/{name}/state', 10)
         self.timer = self.create_timer(1.0, self.publish_state)
         self.srv = self.create_service(HandleSensorError, f'restart_{name}',self.restart_callback)
+        self.subs = self.create_subscription(Bool, f'/{name}/reset', self.reset_callback, 10)
     
     def publish_state(self):
         msg = Bool()
@@ -42,6 +43,12 @@ class Sensor2Node(Node):
             #     self.get_logger().info(f'Update sensor2 state to {self.sensor2}')
         self.publish_state()
         return SetParametersResult(successful=True)
+    
+    def reset_callback(self, msg):
+        if msg.data:
+            self.get_logger().info('Reset received, setting state to True')
+            self.state = True
+            self.publish_state()
     
 def main(args=None):
     rclpy.init(args=args)
