@@ -24,6 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'controller = mobile_robot.controller:main',
+            'robot_monitor_sim = mobile_robot.robot_monitor_sim:main',
         ],
     },
 )

@@ -14,7 +14,7 @@ class Controller(Node):
         msg.linear.x = 0.5
         msg.angular.z = 0.1
         self.pub.publish(msg)
-        self.get_logger().info('Publishing /cmd_vel')
+        self.get_logger().info('Publishing /cmd_vel{linear.x: %.2f, angular.z: %.2f}' % (msg.linear.x, msg.angular.z))
 
 def main(args=None):
     rclpy.init(args=args)

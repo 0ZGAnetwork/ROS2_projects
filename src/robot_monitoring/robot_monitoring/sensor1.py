@@ -15,7 +15,7 @@ class Sensor1Node(Node):
         self.publisher_ = self.create_publisher(Bool, f'/{name}/state', 10)
         self.timer = self.create_timer(1.0, self.publish_state)
         self.srv = self.create_service(HandleSensorError, f'restart_{name}', self.restart_callback)
-        self.subs = self.create_subscription(Bool, f'/{name}/reset', self.reset_callback, 10)
+        self.subs = self.create_subscription(Bool, f'/{name}/reset', self.reset_callback, 10) #
 
     def publish_state(self):
         msg = Bool()

@@ -10,7 +10,7 @@ import time
 
 class RobotMonitorSim(Node):
     def __init__(self):
-        super().__init__('position')
+        super().__init__('robot_monitor_sim')
         self.v = 0.0
         self.w = 0.0
         self.x = 0.0
@@ -42,8 +42,9 @@ class RobotMonitorSim(Node):
         odom.twist.twist.angular.z = self.w
 
         self.pub.publish(odom)
+        self.get_logger().info('Publishing /odom {x: %.2f, y: %.2f, theta: %.2f, v: %.2f, w: %.2f}' % (self.x, self.y, self.teta, self.v, self.w))
 
-def __main__(args=None):
+def main(args=None):
     rclpy.init(args=args)
     node = RobotMonitorSim()
     rclpy.spin(node)
@@ -51,4 +52,4 @@ def __main__(args=None):
     rclpy.shutdown()
 
 if __name__ == '__main__':
-    __main__()
+    main()
