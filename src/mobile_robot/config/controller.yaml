@@ -1,0 +1,5 @@
+controller:
+  ros__parameters:
+    frequency: 50
+    linear_speed: 0.2
+    angular_speed: 0.2

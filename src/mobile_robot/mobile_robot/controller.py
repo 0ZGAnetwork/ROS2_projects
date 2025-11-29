@@ -19,7 +19,7 @@ class Controller(Node):
         self.add_on_set_parameters_callback(self.param_callback)
 
         self.pub = self.create_publisher(Twist, 'Twist', qos_profile)
-        self.timer = self.create_timer(0.1, self.pub_callback)
+        self.timer = self.create_timer(0.2, self.pub_callback)
         
 
     def pub_callback(self):

@@ -49,7 +49,6 @@ class RobotMonitorSim(Node):
         now = self.get_clock().now()
         dt = (now.nanoseconds - self.last_time.nanoseconds) / 1e9
         self.last_time = now 
-
         self.x += self.u1 * math.cos(self.theta) *dt
         self.y += self.u1 * math.sin(self.theta) *dt
         self.theta += self.u2 * dt
