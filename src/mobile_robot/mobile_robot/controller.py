@@ -10,7 +10,7 @@ qos_profile = QoSProfile(
 
 class Controller(Node):
     def __init__(self):
-        super().__init__('controller')
+        super().__init__('controller')  # init variables
         self.declare_parameter('linear_speed', 0.0)
         self.declare_parameter('angular_speed', 0.0)
         self.u1 = self.get_parameter('linear_speed').value
@@ -22,14 +22,14 @@ class Controller(Node):
         self.timer = self.create_timer(0.2, self.pub_callback)
         
 
-    def pub_callback(self):
+    def pub_callback(self): # send msg
         msg = Twist()
         msg.linear.x = self.u1
         msg.angular.z = self.u2
         self.pub.publish(msg)
-        self.get_logger().info(f'Publishing linear {msg.linear.x}, angular {msg.angular.z}')
+        #self.get_logger().info(f'Publishing linear {msg.linear.x}, angular {msg.angular.z}')
 
-    def param_callback(self, params):
+    def param_callback(self, params): #set variables
         for param in params:
             if param.name == "linear_speed":
                 self.u1 = param.value
