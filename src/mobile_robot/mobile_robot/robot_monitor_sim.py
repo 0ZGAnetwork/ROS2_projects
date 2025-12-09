@@ -1,3 +1,5 @@
+from scipy.integrate import solve_ivp
+import matplotlib.pyplot as plt
 import rclpy 
 from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped, Twist, TransformStamped
@@ -14,6 +16,8 @@ class RobotMonitorSim(Node):
         self.declare_parameter('angular_speed', 0.0)
         self.u1 = self.get_parameter('linear_speed').value
         self.u2 = self.get_parameter('angular_speed').value
+        self.history_x = []
+        self.history_y = []
         #
         self.declare_parameter('x',0.0)
         self.declare_parameter('y',0.0)
@@ -32,7 +36,24 @@ class RobotMonitorSim(Node):
         self.tf_broadcaster = TransformBroadcaster(self)    # for transform
         #
         self.add_on_set_parameters_callback(self.param_callback)
+
+        # plot runtime:
+        plt.ion()
+        self.fig, self.ax = plt.subplots()
+        self.line, = self.ax.plot([], [], 'b-')
+        self.ax.set_xlabel("x [m]")
+        self.ax.set_ylabel("t [m]")
+        self.ax.set_title("Trajectory")
+        self.ax.grid(True)
+        self.ax.axis("equal")
     
+    def my_ode(self, t, state):
+        x, y, theta = state
+        dxdt = self.u1 * math.cos(theta)
+        dydt = self.u1 * math.sin(theta)
+        dthetadt = self.u2
+        return [dxdt, dydt, dthetadt]
+
     def control_callback(self, msg: Twist): # receiving msg from controller
         self.u1 = msg.linear.x
         self.u2 = msg.angular.z
@@ -49,9 +70,16 @@ class RobotMonitorSim(Node):
         now = self.get_clock().now()
         dt = (now.nanoseconds - self.last_time.nanoseconds) / 1e9
         self.last_time = now 
-        self.x += self.u1 * math.cos(self.theta) *dt
-        self.y += self.u1 * math.sin(self.theta) *dt
-        self.theta += self.u2 * dt
+        # self.x += self.u1 * math.cos(self.theta) *dt
+        # self.y += self.u1 * math.sin(self.theta) *dt
+        # self.theta += self.u2 * dt
+
+        ## ODE SOLVER
+        state0 = [self.x, self.y, self.theta]
+        sol = solve_ivp( self.my_ode, [0, dt], state0, method="RK45" )
+        self.x, self.y, self.theta = sol.y[:, -1]
+        self.history_x.append(self.x)
+        self.history_y.append(self.y)
 
         PS = PoseStamped()
         PS.header.stamp = now.to_msg()
@@ -92,6 +120,13 @@ class RobotMonitorSim(Node):
         #self.get_logger().info(f'Pose: x={self.x:.2f}, y={self.y:.2f}, theta={self.theta:.2f}')
         #self.get_logger().warning(f'Orientation qx={qx}, qy={qy}, qz={qz}, qw={qw}')
 
+        self.line.set_xdata(self.history_x)
+        self.line.set_ydata(self.history_y)
+        self.ax.relim()
+        self.ax.autoscale_view()
+        self.fig.canvas.draw()
+        self.fig.canvas.flush_events()
+
 
     def param_callback(self, params):   # overwritte variables
         for param in params:
@@ -106,6 +141,7 @@ class RobotMonitorSim(Node):
         return SetParametersResult(successful=True)
 
 
+
 def main(args=None):
     rclpy.init(args=args)
     node = RobotMonitorSim()
@@ -114,6 +150,16 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
         print(' exit :3')
+        # plt.figure()
+        # plt.plot(node.history_x, node.history_y)
+        # plt.xlabel("x [m]")
+        # plt.ylabel("y [m]")
+        # plt.title("Trajectory- ODE solver")
+        # plt.grid(True)
+        # plt.axis('equal')
+        # plt.show()
+        plt.ioff()
+        plt.show()
     finally:
         node.destroy_node()
         #rclpy.shutdown()
