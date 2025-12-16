@@ -3,7 +3,12 @@ import py_trees.common
 import py_trees.display
 import time
 import matplotlib.pyplot as plt
+import os
 
+# source .vevn/bin/activate
+Workspace = os.getcwd()
+folder_src = os.path.join(Workspace, "src")
+bt_robot = os.path.join(folder_src, "bt_robot")
 
 class WorldState:
     def __init__(self):
@@ -107,6 +112,12 @@ if __name__ == "__main__":
     tree = create_behavior_tree(world)
 
     print(py_trees.display.ascii_tree(tree.root))
+    dot_file = os.path.join(bt_robot, "bt_robot_tree.dot")
+    py_trees.display.render_dot_tree(
+        tree.root,
+        target_directory=bt_robot,
+        name="bt_robot_tree"
+    )
     tree.setup()
 
     plt.ion()

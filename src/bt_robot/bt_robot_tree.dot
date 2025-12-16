@@ -1,0 +1,25 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+Root [label="Ⓜ Root", shape=box, style=filled, fillcolor=orange, fontsize=9, fontcolor=black];
+MoveTo_obj1 [label="MoveTo_obj1", shape=ellipse, style=filled, fillcolor=gray, fontsize=9, fontcolor=black];
+Root -> MoveTo_obj1;
+PickUp_obj1 [label="PickUp_obj1", shape=ellipse, style=filled, fillcolor=gray, fontsize=9, fontcolor=black];
+Root -> PickUp_obj1;
+MoveToPlace_obj1 [label="MoveToPlace_obj1", shape=ellipse, style=filled, fillcolor=gray, fontsize=9, fontcolor=black];
+Root -> MoveToPlace_obj1;
+Place_obj1 [label="Place_obj1", shape=ellipse, style=filled, fillcolor=gray, fontsize=9, fontcolor=black];
+Root -> Place_obj1;
+MoveTo_obj2 [label="MoveTo_obj2", shape=ellipse, style=filled, fillcolor=gray, fontsize=9, fontcolor=black];
+Root -> MoveTo_obj2;
+PickUp_obj2 [label="PickUp_obj2", shape=ellipse, style=filled, fillcolor=gray, fontsize=9, fontcolor=black];
+Root -> PickUp_obj2;
+MoveToPlace_obj2 [label="MoveToPlace_obj2", shape=ellipse, style=filled, fillcolor=gray, fontsize=9, fontcolor=black];
+Root -> MoveToPlace_obj2;
+Place_obj2 [label="Place_obj2", shape=ellipse, style=filled, fillcolor=gray, fontsize=9, fontcolor=black];
+Root -> Place_obj2;
+ReturnToStart [label=ReturnToStart, shape=ellipse, style=filled, fillcolor=gray, fontsize=9, fontcolor=black];
+Root -> ReturnToStart;
+}
