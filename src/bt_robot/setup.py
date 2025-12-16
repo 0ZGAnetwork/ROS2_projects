@@ -10,15 +10,13 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/launch', ['launch/visualization.launch.py']),
-        ('share/' + package_name + '/config', ['config/controller.yaml'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='ozga',
     maintainer_email='ozgaapawell@gmail.com',
-    description='bt_robot',
-    license='MIT',
+    description='TODO: Package description',
+    license='TODO: License declaration',
     extras_require={
         'test': [
             'pytest',
@@ -26,8 +24,6 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'controller = bt_robot.controller:main',
-            'robot_monitor_sim = bt_robot.bt_monitor_sim:main',
         ],
     },
 )

@@ -1,4 +1,0 @@
-controller:
-  ros__parameters:
-    linear_speed: 0.2
-    angular_speed: 0.2

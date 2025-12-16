@@ -47,7 +47,7 @@ class RobotMonitorSim(Node):
         self.ax.grid(True)
         self.ax.axis("equal")
     
-    def my_ode(self, t, state):
+    def my_ode(self, t, state): # prepare better name
         x, y, theta = state
         dxdt = self.u1 * math.cos(theta)
         dydt = self.u1 * math.sin(theta)
