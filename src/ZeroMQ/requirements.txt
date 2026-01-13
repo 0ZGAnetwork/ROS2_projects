@@ -1,0 +1,7 @@
+sudo apt update
+sudo apt install protobuf-compiler
+sudo apt install python3-protobuf
+protoc --version
+
+# sudo apt update
+# sudo apt install -y $(cat system_requirements.txt)
