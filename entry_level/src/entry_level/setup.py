@@ -15,8 +15,8 @@ setup(
     zip_safe=True,
     maintainer='pawel',
     maintainer_email='ozgaapawell@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Minimal publisher and subscriber',
+    license='MIT',
     extras_require={
         'test': [
             'pytest',
@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'publisher1 = entry_level.publisher1:main',
         ],
     },
 )
