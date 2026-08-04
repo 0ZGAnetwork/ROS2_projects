@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'publisher1 = entry_level.publisher1:main',
+            'subscriber1 = entry_level.subscriber1:main'
         ],
     },
 )
