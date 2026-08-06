@@ -3,7 +3,7 @@
 <package format="3">
   <name>publisher_cpp</name>
   <version>0.0.0</version>
-  <description>Publisher node in C++</description>
+  <description>Publisher and subscriber nodes in C++</description>
   <maintainer email="ozgaapawell@gmail.com">pawel</maintainer>
   <license>MIT</license>
 
