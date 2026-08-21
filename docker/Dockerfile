@@ -7,4 +7,5 @@ COPY ros2_ws/src ./src
 
 RUN apt-get update && apt-get install -y \
     python3-colcon-common-extensions \
-    ros-jazzy-rviz2
+    ros-jazzy-rviz2 \
+    ros-jazzy-urdf-launch
