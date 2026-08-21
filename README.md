@@ -35,4 +35,6 @@ C++ \ ROS2 \ Docker/Compose \ GITHUB\Git \ CMAKE \ Colcon \ VS CODE
 
 ## How to run
 ```bash
+docker build -t differential_robot .
+docker run -it diff_robot_con
 docker compose up
