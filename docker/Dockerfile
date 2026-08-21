@@ -1,0 +1,9 @@
+FROM ros:jazzy
+
+WORKDIR /ros2_ws
+
+COPY ros2_ws/src ./src 
+# container name: ros2_ws/src
+
+RUN apt-get update && apt-get install -y \
+    python3-colcon-common-extensions

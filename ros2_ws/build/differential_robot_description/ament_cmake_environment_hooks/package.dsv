@@ -1,0 +1,4 @@
+source;share/differential_robot_description/local_setup.bash
+source;share/differential_robot_description/local_setup.dsv
+source;share/differential_robot_description/local_setup.sh
+source;share/differential_robot_description/local_setup.zsh

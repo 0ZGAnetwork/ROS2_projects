@@ -1,0 +1,31 @@
+[0.007s] Invoking command in '/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pawel/Projects/differential_robot_ws/ros2_ws/src/differential_robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description
+[0.017s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.180s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.187s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.262s] -- Added test 'lint_cmake' to check CMake code style
+[0.263s] -- Added test 'xmllint' to check XML markup files
+[0.264s] -- Configuring done (0.3s)
+[0.266s] -- Generating done (0.0s)
+[0.268s] -- Build files have been written to: /home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description
+[0.270s] Invoked command in '/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pawel/Projects/differential_robot_ws/ros2_ws/src/differential_robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description
+[0.271s] Invoking command in '/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description -- -j12 -l12
+[0.297s] Invoked command in '/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description -- -j12 -l12
+[0.304s] Invoking command in '/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description
+[0.309s] -- Install configuration: ""
+[0.309s] -- Execute custom install script
+[0.310s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/ament_index/resource_index/package_run_dependencies/differential_robot_description
+[0.315s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/ament_index/resource_index/parent_prefix_path/differential_robot_description
+[0.321s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/environment/ament_prefix_path.sh
+[0.327s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/environment/ament_prefix_path.dsv
+[0.333s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/environment/path.sh
+[0.339s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/environment/path.dsv
+[0.345s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/local_setup.bash
+[0.351s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/local_setup.sh
+[0.356s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/local_setup.zsh
+[0.362s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/local_setup.dsv
+[0.369s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/package.dsv
+[0.374s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/ament_index/resource_index/packages/differential_robot_description
+[0.380s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/cmake/differential_robot_descriptionConfig.cmake
+[0.386s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/cmake/differential_robot_descriptionConfig-version.cmake
+[0.392s] -- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/package.xml
+[0.399s] Invoked command in '/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description

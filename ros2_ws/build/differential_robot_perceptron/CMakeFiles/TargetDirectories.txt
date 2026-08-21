@@ -1,0 +1,9 @@
+/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_perceptron/CMakeFiles/uninstall.dir
+/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_perceptron/CMakeFiles/differential_robot_perceptron_uninstall.dir
+/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_perceptron/CMakeFiles/test.dir
+/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_perceptron/CMakeFiles/edit_cache.dir
+/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_perceptron/CMakeFiles/rebuild_cache.dir
+/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_perceptron/CMakeFiles/list_install_components.dir
+/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_perceptron/CMakeFiles/install.dir
+/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_perceptron/CMakeFiles/install/local.dir
+/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_perceptron/CMakeFiles/install/strip.dir

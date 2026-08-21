@@ -1,0 +1,25 @@
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/ament_index/resource_index/package_run_dependencies/differential_robot_description
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/ament_index/resource_index/parent_prefix_path/differential_robot_description
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/environment/ament_prefix_path.sh
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/environment/ament_prefix_path.dsv
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/environment/path.sh
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/environment/path.dsv
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/local_setup.bash
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/local_setup.sh
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/local_setup.zsh
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/local_setup.dsv
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/package.dsv
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/ament_index/resource_index/packages/differential_robot_description
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/cmake/differential_robot_descriptionConfig.cmake
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/cmake/differential_robot_descriptionConfig-version.cmake
+-- Symlinking: /home/pawel/Projects/differential_robot_ws/ros2_ws/install/differential_robot_description/share/differential_robot_description/package.xml
