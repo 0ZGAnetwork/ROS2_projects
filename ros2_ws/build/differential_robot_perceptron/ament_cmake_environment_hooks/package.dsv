@@ -1,4 +1,0 @@
-source;share/differential_robot_perceptron/local_setup.bash
-source;share/differential_robot_perceptron/local_setup.dsv
-source;share/differential_robot_perceptron/local_setup.sh
-source;share/differential_robot_perceptron/local_setup.zsh

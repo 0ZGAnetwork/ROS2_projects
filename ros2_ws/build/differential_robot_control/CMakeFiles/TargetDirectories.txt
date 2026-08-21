@@ -1,9 +1,0 @@
-/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_control/CMakeFiles/uninstall.dir
-/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_control/CMakeFiles/differential_robot_control_uninstall.dir
-/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_control/CMakeFiles/test.dir
-/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_control/CMakeFiles/edit_cache.dir
-/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_control/CMakeFiles/rebuild_cache.dir
-/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_control/CMakeFiles/list_install_components.dir
-/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_control/CMakeFiles/install.dir
-/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_control/CMakeFiles/install/local.dir
-/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_control/CMakeFiles/install/strip.dir

@@ -1,1 +1,0 @@
-/home/pawel/Projects/differential_robot_ws/ros2_ws/build/differential_robot_description/ament_cmake_core/differential_robot_descriptionConfig.cmake
