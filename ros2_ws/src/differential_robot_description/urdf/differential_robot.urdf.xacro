@@ -2,10 +2,19 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"
        name="differential_robot">
 
+    <!-- Robot dimensions -->
     <xacro:property name="body_length" value="0.5"/>
     <xacro:property name="body_width" value="0.4"/>
     <xacro:property name="body_height" value="0.3"/>
 
+    <!-- Wheel dimensions -->
+    <xacro:property name="wheel_radius" value="0.05"/>
+    <xacro:property name="wheel_width" value="0.02"/>
+    <xacro:property name="wheel_separation" value="${body_width}"/>
+
+    <!-- Constants -->
+
+    <!-- Body -->
     <link name="base_link">
         <visual>
             <geometry>
@@ -13,5 +22,45 @@
             </geometry>
         </visual>
     </link>
+
+    <!-- Front Left Wheel -->
+    <link name="front_left_wheel_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <cylinder radius="${wheel_radius}"
+                          length="${wheel_width}"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- Front Left Wheel Joint -->
+    <joint name="front_left_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_left_wheel_link"/>
+        <origin xyz="0 ${-wheel_separation/2} 0"
+                rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <!-- Front Right Wheel -->
+    <link name="front_right_wheel_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+            <geometry>
+                <cylinder radius="${wheel_radius}"
+                          length="${wheel_width}"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- Front Right Wheel Joint -->
+    <joint name="front_right_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_right_wheel_link"/>
+        <origin xyz="0 ${wheel_separation/2} 0"
+                rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
 
 </robot>

@@ -11,7 +11,7 @@ def generate_launch_description():
         PathJoinSubstitution([FindPackageShare('urdf_launch'), 'launch', 'description.launch.py']),
         launch_arguments={
             'urdf_package': 'differential_robot_description',
-            'urdf_package_path': PathJoinSubstitution(['urdf', 'differential_robot.urdf'])}.items()
+            'urdf_package_path': PathJoinSubstitution(['urdf', 'differential_robot.urdf.xacro'])}.items()
     ))
 
     return ld
