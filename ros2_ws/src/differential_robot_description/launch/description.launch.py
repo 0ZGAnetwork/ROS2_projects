@@ -24,9 +24,17 @@ def generate_launch_description():
             }.items()
         ),
 
+        # old implementation of /joint_states
+        # Node(
+        #     package='joint_state_publisher',
+        #     executable='joint_state_publisher'
+        # ),
+
+        # new implementation of /joint_states
         Node(
-            package='joint_state_publisher',
-            executable='joint_state_publisher'
+            package='differential_robot_description',
+            executable='wheel_state_publisher.py',
+            output='screen'
         ),
 
         Node(
