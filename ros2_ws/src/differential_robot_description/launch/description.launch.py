@@ -33,7 +33,8 @@ def generate_launch_description():
         # new implementation of /joint_states
         Node(
             package='differential_robot_description',
-            executable='wheel_state_publisher.py',
+            # executable='wheel_state_publisher.py',
+            executable='wheel_state_publisher_cpp',
             output='screen'
         ),
 
