@@ -15,10 +15,10 @@ C++ \ ROS2 \ Docker/Compose \ GITHUB\Git \ CMAKE \ Colcon \ VS CODE
 
 ### Phase 2 — Robot Description
 
-- [ ] Create robot model
-- [ ] Add URDF/Xacro
-- [ ] Add launch files
-- [ ] Visualize robot in RViz
+- [x] Create robot model
+- [x] Add URDF/Xacro
+- [x] Add launch files
+- [x] Visualize robot in RViz
 
 ### Phase 3 — Control
 - [ ] Implement differential-drive control
