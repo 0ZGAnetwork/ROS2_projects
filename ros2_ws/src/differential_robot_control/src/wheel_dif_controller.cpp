@@ -42,11 +42,11 @@ private:
 
     void publisher_callback()
     {
-
-        // wheel_radius_ = this->declare_parameter<double>("wheel_radius", 0.125);
-        // wheel_separation_ = this->declare_parameter<double>("wheel_separation", 0.4);
-        //wheel calculation
-        // joint state publishing 
+        const double right_linear_velocity = linear_velocity_ + (angular_velocity_ * wheel_separation_ / 2.0);
+        const double left_linear_velocity = linear_velocity_ - (angular_velocity_ * wheel_separation_ / 2.0);
+        // m/s-> rad/s
+        const double right_wheel_velocity_ = right_linear_velocity / wheel_radius_;
+        const double left_wheel_velocity_ = left_linear_velocity / wheel_radius_;
     }
 
     // ROS interfaces
@@ -54,8 +54,6 @@ private:
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscriber_;
     rclcpp::TimerBase::SharedPtr timer_;
 
-    double linear_velocity_ = 0.0;
-    double angular_velocity_ = 0.0;
 };
 
 //main
