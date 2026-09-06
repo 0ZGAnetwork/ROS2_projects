@@ -7,9 +7,35 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+
+# cpp
+add_executable(wheel_diff_controller_cpp
+  src/wheel_diff_controller.cpp
+)
+# cpp
+ament_target_dependencies(
+  wheel_diff_controller_cpp
+  rclcpp
+  sensor_msgs
+  geometry_msgs
+)
+# cpp
+install(
+  TARGETS wheel_diff_controller_cpp
+  DESTINATION lib/${PROJECT_NAME}
+)
+# cpp
+install(
+  DIRECTORY launch config
+  DESTINATION share/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

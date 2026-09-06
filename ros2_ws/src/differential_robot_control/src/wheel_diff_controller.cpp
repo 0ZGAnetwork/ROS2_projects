@@ -12,6 +12,10 @@ public:
     WheelController() : 
     Node("wheel_diff_controller")
     {
+        wheel_radius_ = this->declare_parameter<double>("wheel_radius");
+
+        wheel_separation_ = this->declare_parameter<double>("wheel_separation");
+
         //publisher
         publisher_ = this->create_publisher<sensor_msgs::msg::JointState>("/joint_states", 10);       
         subscriber_ = this->create_subscription<geometry_msgs::msg::Twist>("/cmd_vel", 10, 
@@ -33,6 +37,11 @@ private:
     double linear_velocity_ = 0.0;
     double angular_velocity_ = 0.0;
 
+    double front_left_wheel_position_ = 0.0;
+    double front_right_wheel_position_ = 0.0;
+    double rear_left_wheel_position_ = 0.0;
+    double rear_right_wheel_position_ = 0.0;
+
     void cmd_vel_callback(const geometry_msgs::msg::Twist::SharedPtr msg)
     {
         linear_velocity_ = msg->linear.x;
@@ -42,11 +51,36 @@ private:
 
     void publisher_callback()
     {
+        // equations for dfferential drive robot
         const double right_linear_velocity = linear_velocity_ + (angular_velocity_ * wheel_separation_ / 2.0);
         const double left_linear_velocity = linear_velocity_ - (angular_velocity_ * wheel_separation_ / 2.0);
         // m/s-> rad/s
-        const double right_wheel_velocity_ = right_linear_velocity / wheel_radius_;
-        const double left_wheel_velocity_ = left_linear_velocity / wheel_radius_;
+        right_wheel_velocity_ = right_linear_velocity / wheel_radius_;
+        left_wheel_velocity_ = left_linear_velocity / wheel_radius_;
+
+        //integrate wheel positions
+        const double dt = 0.1; // 100ms
+        front_left_wheel_position_ += left_wheel_velocity_ * dt;
+        front_right_wheel_position_ += right_wheel_velocity_ * dt;
+        rear_left_wheel_position_ += left_wheel_velocity_ * dt;
+        rear_right_wheel_position_ += right_wheel_velocity_ * dt;
+
+        //publish joint states
+        auto msg = sensor_msgs::msg::JointState();
+        msg.header.stamp = this->get_clock()->now();
+        msg.name = {
+            "front_left_wheel_joint",
+            "front_right_wheel_joint",
+            "rear_left_wheel_joint",
+            "rear_right_wheel_joint"
+        };
+        msg.position = {
+            front_left_wheel_position_,
+            front_right_wheel_position_,
+            rear_left_wheel_position_,
+            rear_right_wheel_position_
+        };
+        publisher_->publish(msg);
     }
 
     // ROS interfaces
