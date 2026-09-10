@@ -6,36 +6,34 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # find dependencies
-find_package(rclpy REQUIRED)
-find_package(rclcpp REQUIRED)
 find_package(ament_cmake REQUIRED)
-find_package(sensor_msgs REQUIRED)
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
 # cpp
-add_executable(wheel_state_publisher_cpp
-  my_robot_description/wheel_state_publisher.cpp
-)
+#add_executable(wheel_state_publisher_cpp
+#  my_robot_description/wheel_state_publisher.cpp
+#)
 # cpp
-ament_target_dependencies(wheel_state_publisher_cpp
-  rclcpp
-  sensor_msgs
-)
+#ament_target_dependencies(wheel_state_publisher_cpp
+#  rclcpp
+#  sensor_msgs
+#)
 #cpp
-install(
-  TARGETS wheel_state_publisher_cpp
-  DESTINATION lib/${PROJECT_NAME}
-)
+#install(
+#  TARGETS wheel_state_publisher_cpp
+#  DESTINATION lib/${PROJECT_NAME}
+#)
 
 #py
-install(
-  PROGRAMS
-    my_robot_description/wheel_state_publisher.py
-  DESTINATION lib/${PROJECT_NAME}
-)
+#install(
+#  PROGRAMS
+#    my_robot_description/wheel_state_publisher.py
+#  DESTINATION lib/${PROJECT_NAME}
+#)
+
 # py
 install(
   DIRECTORY launch urdf config
