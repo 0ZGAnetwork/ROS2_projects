@@ -18,3 +18,4 @@ RUN apt-get update && apt-get install -y \
     ros-jazzy-nav-msgs \
     ros-jazzy-tf2 \
     ros-jazzy-tf2-ros \
+    ros-jazzy-teleop-twist-keyboard
