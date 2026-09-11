@@ -62,10 +62,9 @@
         <axis xyz="0 1 0"/>
     </joint>
 
-</robot>
 
-<!-- 
-        <!-- Rear Left Wheel -->
+<!-- commented out rear wheels for differential drive robot 
+       
     <link name="rear_left_wheel_link">
         <visual>
             <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
@@ -76,7 +75,7 @@
         </visual>
     </link>
 
-    <!-- Rear left Wheel Joint -->
+    
     <joint name="rear_left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="rear_left_wheel_link"/>
@@ -85,7 +84,7 @@
         <axis xyz="0 1 0"/>
     </joint>
 
-    <!-- Rear Right Wheel -->
+    
     <link name="rear_right_wheel_link">
         <visual>
             <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
@@ -96,7 +95,7 @@
         </visual>
     </link> 
 
-    <!-- Rear Right Wheel Joint -->
+    
     <joint name="rear_right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="rear_right_wheel_link"/>
@@ -105,3 +104,5 @@
         <axis xyz="0 1 0"/>
     </joint>
     -->
+
+</robot>
