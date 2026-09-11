@@ -22,7 +22,7 @@
         </visual>
     </link>
 
-     <!-- Front Left Wheel -->
+    <!-- Front Left Wheel -->
     <link name="front_left_wheel_link">
         <visual>
             <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
@@ -37,7 +37,7 @@
     <joint name="front_left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="front_left_wheel_link"/>
-        <origin xyz="0 ${wheel_separation/2} ${body_height/2 - wheel_radius}"
+        <origin xyz="${body_length/2} ${wheel_separation/2} ${body_height/2 - wheel_radius}"
                 rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
@@ -57,15 +57,12 @@
     <joint name="front_right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="front_right_wheel_link"/>
-        <origin xyz="0 ${-wheel_separation/2} ${body_height/2 - wheel_radius}"
+        <origin xyz="${body_length/2} ${-wheel_separation/2} ${body_height/2 - wheel_radius}"
                 rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
 
-</robot>
-
-<!-- 
-        <!-- Rear Left Wheel -->
+    <!-- Rear Left Wheel -->
     <link name="rear_left_wheel_link">
         <visual>
             <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
@@ -80,7 +77,7 @@
     <joint name="rear_left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="rear_left_wheel_link"/>
-        <origin xyz="${-body_length/2} ${-wheel_separation/2} ${body_height/2 - wheel_radius}"
+        <origin xyz="${-body_length/2} ${wheel_separation/2} ${body_height/2 - wheel_radius}"
                 rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
@@ -100,8 +97,10 @@
     <joint name="rear_right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="rear_right_wheel_link"/>
-        <origin xyz="${-body_length/2} ${wheel_separation/2} ${body_height/2 - wheel_radius}"
+        <origin xyz="${-body_length/2} ${-wheel_separation/2} ${body_height/2 - wheel_radius}"
                 rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
-    -->
+    
+
+</robot>
