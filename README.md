@@ -21,7 +21,10 @@ C++ \ ROS2 \ Docker/Compose \ GITHUB\Git \ CMAKE \ Colcon \ VS CODE
 - [x] Visualize robot in RViz
 
 ### Phase 3 — Control
-- [ ] Implement differential-drive control
+- [x] add odometry, and wheel rotation
+- [x] Implement wheel_odom control via Terminal
+- [x] Implement differential-drive control
+- [ ] add teleoperation
 - [ ] Test movement
 
 ### Phase 4 — Simulation
